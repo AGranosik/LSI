@@ -28,6 +28,13 @@ namespace LSI.Common.Services
             _repository = repository;
             _mapper = mapper;
         }
+
+        public IQueryable<TModel> PaginateQuery(IQueryable<TModel> query, Pagination pagination)
+        {
+            return query.Skip((pagination.Page - 1) * pagination.PageSize)
+                .Take(pagination.PageSize);
+        }
+
         public async Task<UDto> AddAsync(UDto dto)
         {
             var model = await ConvertDtoToModel(dto);

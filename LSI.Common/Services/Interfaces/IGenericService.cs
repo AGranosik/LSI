@@ -21,5 +21,6 @@ namespace LSI.Common.Services.Interfaces
         Task<UDto> AddAsync(UDto model);
         Task DeleteAsync(UDto model);
         Task<UDto> UpdateAsync(UDto model);
+        IQueryable<TModel> PaginateQuery(IQueryable<TModel> query,  Pagination pagination);
     }
 }

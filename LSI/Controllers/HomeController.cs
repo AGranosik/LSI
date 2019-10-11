@@ -1,8 +1,4 @@
 ﻿using LSI.BusinessLogic.Services.Interfaces;
-using LSI.Common.Repositories;
-using LSI.Data.Context;
-using LSI.Data.Models;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -22,7 +18,6 @@ namespace LSI.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            var list = await _service.GetAllListAsync();
             return View();
         }
 
