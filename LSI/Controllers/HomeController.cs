@@ -24,11 +24,12 @@ namespace LSI.Controllers
 
         public async Task<ActionResult> Index(ExportFilter filter)
         {
-            var list = await _exportService.FilteredList(filter);
+            var tuple = await _exportService.FilteredListAsync(filter);
             var localList = await _localService.GetAllListAsync();
             var vm = new ExportViewModel
             {
-                Exports = list,
+                Exports = tuple.Item1,
+                NumberOfModels = tuple.Item2,
                 Models = localList.Select(l => new SelectListItem { Value = l.ID.ToString(), Text = l.Name}).ToList()
             };
             //var vm 

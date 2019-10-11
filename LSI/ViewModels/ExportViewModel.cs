@@ -13,6 +13,7 @@ namespace LSI.ViewModels
     {
         public int? SelectedId { get; set; }
         public List<SelectListItem> Models { get; set; }
+        public int NumberOfModels { get; set; }
         public List<ExportDto> Exports { get; set; }
     }
 }

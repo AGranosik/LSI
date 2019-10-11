@@ -23,10 +23,11 @@ namespace LSI.BusinessLogic.Services
             _localRepository = localRespository;
         }
 
-        public async Task<List<ExportDto>> FilteredList(ExportFilter filter)
+        public async Task<Tuple<List<ExportDto>, int>> FilteredListAsync(ExportFilter filter)
         {
             FilterValidation(filter);
             var query = _repository.GetAll();
+            var numberOfModels = query.Count();
 
             if (filter.From.HasValue)
                 query = query.Where(e => e.Date.CompareTo(filter.From.Value) >= 0);
@@ -44,7 +45,9 @@ namespace LSI.BusinessLogic.Services
 
             var exportModelList = await query.ToListAsync();
 
-            return await ConvertModelListToDtoList(exportModelList);;
+            var dtoList = await ConvertModelListToDtoList(exportModelList);
+
+            return new Tuple<List<ExportDto>, int>(dtoList, numberOfModels);
         }
 
         private void FilterValidation(ExportFilter filter)
