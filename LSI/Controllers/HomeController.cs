@@ -21,9 +21,10 @@ namespace LSI.Controllers
             _exportService = service;
             _localService = localService;
         }
-        public async Task<ActionResult> Index()
+
+        public async Task<ActionResult> Index(ExportFilter filter)
         {
-            var list = await _exportService.FilteredList(new ExportFilter { });
+            var list = await _exportService.FilteredList(filter);
             var localList = await _localService.GetAllListAsync();
             var vm = new ExportViewModel
             {

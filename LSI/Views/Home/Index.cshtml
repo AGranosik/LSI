@@ -8,17 +8,25 @@
 <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
 
 <div id="export-table">
-    <div class="filters">
-        <div class="filter">
-            Od: <input type="text" id="from-datepicker">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+    {
+        <div class="filters">
+            <div class="filter">
+                Od:
+                @Html.TextBoxFor(e => e.From, new { id = "from-datepicker" })
+            </div>
+            <div class="filter">
+                
+                Do: 
+                @Html.TextBoxFor(e => e.To, new { id= "to-datepicker" })
+            </div>
+                @Html.DropDownListFor(e => e.LocalId, Model.Models, "Wybierz Lokal", new { @class = "form-control filter" })
         </div>
-        <div class="filter">
-            Do: <input type="text" id="to-datepicker">
+        <div>
+            <input type="submit" value="Wyszukaj" class="btn" />
         </div>
-        <div class="filter">
-            @Html.DropDownListFor(e => e.LocalId, Model.Models, "Wybierz Lokal", new { @class = "form-control"})
-        </div>
-    </div>
+    }
+
 
     <table class="table">
         <th>
