@@ -153,6 +153,7 @@
     <Compile Include="Configuration\Automapper\DIMapper.cs" />
     <Compile Include="Configuration\Automapper\ExportProfile.cs" />
     <Compile Include="Configuration\DIConfig.cs" />
+    <Compile Include="Controllers\BaseActionDtoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -199,6 +200,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\BaseActionDto\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

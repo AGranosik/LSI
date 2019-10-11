@@ -1,4 +1,6 @@
-﻿using LSI.BusinessLogic.Filters;
+﻿using LSI.Application.Repositories.Interfaces;
+using LSI.BusinessLogic.Dtos;
+using LSI.BusinessLogic.Filters;
 using LSI.BusinessLogic.Services.Interfaces;
 using LSI.ViewModels;
 using System.Linq;
@@ -7,16 +9,11 @@ using System.Web.Mvc;
 
 namespace LSI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseActionDtoController<ExportDto>
     {
         private readonly IExportService _exportService;
         private readonly ILocalService _localService;
-
-        public HomeController()
-        {
-
-        }
-        public HomeController(IExportService service, ILocalService localService)
+        public HomeController(IExportService service, ILocalService localService, ILogger logger) : base(logger)
         {
             _exportService = service;
             _localService = localService;
@@ -24,8 +21,9 @@ namespace LSI.Controllers
 
         public async Task<ActionResult> Index(ExportFilter filter)
         {
-            var tuple = await _exportService.FilteredListAsync(filter);
-            var localList = await _localService.GetAllListAsync();
+
+            var tuple = await RunTupleResultAsync(() =>  _exportService.FilteredListAsync(filter));
+            var localList = await RunListActionResultAsync<LocalDto>(() => _localService.GetAllListAsync());
             var vm = new ExportViewModel
             {
                 Exports = tuple.Item1,

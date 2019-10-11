@@ -11,5 +11,6 @@ namespace LSI.Data.Context
         public virtual DbSet<Export> Exports { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Local> Locals { get; set; }
+        public virtual DbSet<Log> Logs { get; set; }
     }
 }

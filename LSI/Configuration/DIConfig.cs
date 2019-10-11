@@ -28,6 +28,8 @@ namespace LSI.Configuration
             container.RegisterType<ILocalRespository, LocalRepository>();
             container.RegisterType<ILocalService, LocalService>();
 
+            container.RegisterType<ILogger, Logger>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
