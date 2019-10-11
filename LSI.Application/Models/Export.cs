@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace LSI.Application.Models
+namespace LSI.Data.Models
 {
     public class Export
     {

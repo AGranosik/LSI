@@ -188,9 +188,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LSI.Application\LSI.Application.csproj">
+    <ProjectReference Include="..\LSI.Application\LSI.Data.csproj">
       <Project>{EE1BEBF3-5E0A-4D51-976B-254E159DBBFB}</Project>
-      <Name>LSI.Application</Name>
+      <Name>LSI.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

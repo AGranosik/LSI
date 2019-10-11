@@ -1,18 +1,12 @@
-﻿using LSI.Application.Models;
-using System;
-using System.Collections.Generic;
+﻿using LSI.Data.Models;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LSI.Application.Context
+namespace LSI.Data.Context
 {
     public class ExportDbContext : DbContext
     {
         public ExportDbContext() : base("ExportDB")
         {
-            Database.SetInitializer(new ExportDBInitializer());
         }
         public virtual DbSet<Export> Exports { get; set; }
         public virtual DbSet<User> Users { get; set; }

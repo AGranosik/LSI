@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSI", "LSI\LSI.csproj", "{68B82534-80CD-444D-8A98-9E4E6167827B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSI.Application", "LSI.Application\LSI.Application.csproj", "{EE1BEBF3-5E0A-4D51-976B-254E159DBBFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSI.Data", "LSI.Application\LSI.Data.csproj", "{EE1BEBF3-5E0A-4D51-976B-254E159DBBFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LSI.Common", "LSI.Common\LSI.Common.csproj", "{21C4CBAA-C95D-40F2-9A88-B82A4FC961E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EE1BEBF3-5E0A-4D51-976B-254E159DBBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE1BEBF3-5E0A-4D51-976B-254E159DBBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE1BEBF3-5E0A-4D51-976B-254E159DBBFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21C4CBAA-C95D-40F2-9A88-B82A4FC961E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21C4CBAA-C95D-40F2-9A88-B82A4FC961E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21C4CBAA-C95D-40F2-9A88-B82A4FC961E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21C4CBAA-C95D-40F2-9A88-B82A4FC961E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

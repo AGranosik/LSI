@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LSI.Application.Models
+namespace LSI.Data.Models
 {
     public class User
     {
