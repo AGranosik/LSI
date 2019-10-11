@@ -1,19 +1,28 @@
-﻿using LSI.Data.Context;
+﻿using LSI.BusinessLogic.Services.Interfaces;
+using LSI.Common.Repositories;
+using LSI.Data.Context;
+using LSI.Data.Models;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace LSI.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly IExportService _service;
+
+        public HomeController()
         {
-            using(var context = new ExportDbContext())
-            {
-                var users = context.Users.ToList();
-                var locals = context.Locals.ToList();
-                var exports = context.Exports.ToList();
-            }
+
+        }
+        public HomeController(IExportService service)
+        {
+            _service = service;
+        }
+        public async Task<ActionResult> Index()
+        {
+            var list = await _service.GetAllListAsync();
             return View();
         }
 

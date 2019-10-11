@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
+using LSI.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,10 +14,14 @@ namespace LSI
     {
         protected void Application_Start()
         {
+            //Mapper.Initialize(cfg => cfg.)
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            DIConfig.RegisterComponents();
         }
     }
 }

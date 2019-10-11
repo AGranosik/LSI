@@ -1,15 +1,15 @@
 ﻿using LSI.Common.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LSI.Data.Models
+namespace LSI.BusinessLogic.Dtos
 {
-    public class User : BaseModel
+    public class UserDto : BaseDto
     {
         public string Name { get; set; }
+
     }
 }

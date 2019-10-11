@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LSI.Common.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -7,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace LSI.Data.Models
 {
-    public class Local
+    public class Local : BaseModel
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
         public string Name { get; set; }
     }
 }

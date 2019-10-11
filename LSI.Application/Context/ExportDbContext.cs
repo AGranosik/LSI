@@ -5,7 +5,7 @@ namespace LSI.Data.Context
 {
     public class ExportDbContext : DbContext
     {
-        public ExportDbContext() : base("ExportDB")
+        public ExportDbContext() : base("name=ExportlDBConnectionString")
         {
         }
         public virtual DbSet<Export> Exports { get; set; }

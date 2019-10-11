@@ -28,13 +28,13 @@ namespace LSI.Application.Migrations
 
 
             exports.Add(new Export { Date = DateTime.Now, Name = "export1", LocalId = 1, UserId = 1 });
-            exports.Add(new Export { Date = new DateTime(2019, 10, 12), Name = "export2", LocalId = 2, UserId = 1 });
-            exports.Add(new Export { Date = new DateTime(2019, 10, 14), Name = "export3", LocalId = 1, UserId = 2 });
-            exports.Add(new Export { Date = new DateTime(2019, 10, 15), Name = "export4", LocalId = 2, UserId = 1 });
-            exports.Add(new Export { Date = new DateTime(2019, 10, 15), Name = "export5", LocalId = 1, UserId = 1 });
-            exports.Add(new Export { Date = new DateTime(2019, 10, 15), Name = "export6", LocalId = 2, UserId = 2 });
-            exports.Add(new Export { Date = new DateTime(2019, 10, 17), Name = "export7", LocalId = 1, UserId = 1 });
-            exports.Add(new Export { Date = new DateTime(2018, 10, 12), Name = "export8", LocalId = 2, UserId = 1 });
+            exports.Add(new Export { Date = new DateTime(2019, 10, 12), Time = new TimeSpan(hours:12, minutes: 10, seconds: 0), Name = "export2", LocalId = 2, UserId = 1 });
+            exports.Add(new Export { Date = new DateTime(2019, 10, 14), Time = new TimeSpan(hours: 12, minutes: 10, seconds: 0), Name = "export3", LocalId = 1, UserId = 2 });
+            exports.Add(new Export { Date = new DateTime(2019, 10, 15), Time = new TimeSpan(hours: 12, minutes: 10, seconds: 0), Name = "export4", LocalId = 2, UserId = 1 });
+            exports.Add(new Export { Date = new DateTime(2019, 10, 15), Time = new TimeSpan(hours: 12, minutes: 10, seconds: 0), Name = "export5", LocalId = 1, UserId = 1 });
+            exports.Add(new Export { Date = new DateTime(2019, 10, 15), Time = new TimeSpan(hours: 12, minutes: 10, seconds: 0), Name = "export6", LocalId = 2, UserId = 2 });
+            exports.Add(new Export { Date = new DateTime(2019, 10, 17), Time = new TimeSpan(hours: 12, minutes: 10, seconds: 0), Name = "export7", LocalId = 1, UserId = 1 });
+            exports.Add(new Export { Date = new DateTime(2018, 10, 12), Time = new TimeSpan(hours: 12, minutes: 10, seconds: 0), Name = "export8", LocalId = 2, UserId = 1 });
 
             context.Users.AddRange(users);
             context.Locals.AddRange(locals);

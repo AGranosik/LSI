@@ -1,14 +1,14 @@
-﻿using System;
+﻿using LSI.Common.Model;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LSI.Data.Models
 {
-    public class Export
+    public class Export : BaseModel
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
+        public TimeSpan Time { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public int LocalId { get; set; }

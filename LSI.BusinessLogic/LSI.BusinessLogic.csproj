@@ -4,14 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{21C4CBAA-C95D-40F2-9A88-B82A4FC961E6}</ProjectGuid>
+    <ProjectGuid>{01E2C80A-12D8-4469-A69E-63B582B8FC58}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LSI.Common</RootNamespace>
-    <AssemblyName>LSI.Common</AssemblyName>
+    <RootNamespace>LSI.BusinessLogic</RootNamespace>
+    <AssemblyName>LSI.BusinessLogic</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,19 +53,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\ModelNotFoundException.cs" />
-    <Compile Include="Model\BaseDto.cs" />
-    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Dtos\ExportDto.cs" />
+    <Compile Include="Dtos\LocalDto.cs" />
+    <Compile Include="Dtos\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\Interfaces\IGenericRepository.cs" />
-    <Compile Include="Services\GenericeService.cs" />
-    <Compile Include="Services\Interfaces\IGenericService.cs" />
+    <Compile Include="Services\ExportService.cs" />
+    <Compile Include="Services\Interfaces\IExportService.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LSI.Application\LSI.Data.csproj">
+      <Project>{EE1BEBF3-5E0A-4D51-976B-254E159DBBFB}</Project>
+      <Name>LSI.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LSI.Common\LSI.Common.csproj">
+      <Project>{21C4CBAA-C95D-40F2-9A88-B82A4FC961E6}</Project>
+      <Name>LSI.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
