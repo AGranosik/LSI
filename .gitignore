@@ -72,3 +72,4 @@ _[Ss]cripts
 *.dot[Cc]over
 /LSI.Database
 /.vs
+/LSI/App_Data
