@@ -25,6 +25,9 @@ namespace LSI.Configuration
             var config = new MapperConfiguration(cfg => cfg.AddProfile<ExportProfile>());
             container.RegisterInstance(config.CreateMapper());
 
+            container.RegisterType<ILocalRespository, LocalRepository>();
+            container.RegisterType<ILocalService, LocalService>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

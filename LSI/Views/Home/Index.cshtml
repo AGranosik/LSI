@@ -1,3 +1,70 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@model LSI.ViewModels.ExportViewModel
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+
+<div id="export-table">
+    <div class="filters">
+        <div class="filter">
+            Od: <input type="text" id="from-datepicker">
+        </div>
+        <div class="filter">
+            Do: <input type="text" id="to-datepicker">
+        </div>
+        <div class="filter">
+            @Html.DropDownListFor(e => e.LocalId, Model.Models, "Wybierz Lokal", new { @class = "form-control"})
+        </div>
+    </div>
+
+    <table class="table">
+        <th>
+            Nazwa
+        </th>
+        <th>
+            Data
+        </th>
+        <th>
+            Godzina
+        </th>
+        <th>
+            Uzytkownik
+        </th>
+        <th>
+            Lokal
+        </th>
+
+
+        @foreach (var export in Model.Exports)
+        {
+            <tr>
+                <td>@export.Name</td>
+                <td>@export.Date.ToShortDateString()</td>
+                <td>@export.Time.ToString()</td>
+                <td>@export.User.Name</td>
+                <td>@export.Local.Name</td>
+            </tr>
+        }
+        </tr>
+    </table>
+</div>
+
+
+    @section Scripts{
+
+        <script type="text/javascript">
+                
+
+            $(document).ready(
+                function () {
+                    $("#from-datepicker").datepicker();
+                    $("#to-datepicker").datepicker();
+
+                }
+            );
+            
+        </script>
+    }

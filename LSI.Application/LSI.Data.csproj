@@ -70,6 +70,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ExportReposiotry.cs" />
     <Compile Include="Repositories\Interfaces\IExportRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILocalRespository.cs" />
+    <Compile Include="Repositories\LocalRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

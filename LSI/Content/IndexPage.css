@@ -1,0 +1,15 @@
+﻿#export-table{
+    display: flex;
+}
+.table{
+    width: 85%;
+}
+
+.filters {
+    width: 15%;
+    margin-right: 5%;
+}
+
+.filter {
+    margin-top: 20px;
+}

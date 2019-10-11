@@ -1,4 +1,5 @@
-﻿using LSI.Common.Model;
+﻿using LSI.BusinessLogic.Services.Interfaces;
+using LSI.Common.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace LSI.BusinessLogic.Dtos
 {
     public class ExportDto : BaseDto
     {
+
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }

@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 
 namespace LSI.Common.Services
 {
-    public class GenericeService<UDto, TRepository, TModel, TContext> : IGenericService<UDto, TRepository, TModel, TContext>
-        where UDto : BaseDto
+    public class GenericeService<UVM, TRepository, TModel, TContext> : IGenericService<UVM, TRepository, TModel, TContext>
+        where UVM : BaseDto
         where TModel : BaseModel
         where TContext : DbContext
         where TRepository : IGenericRepository<TContext, TModel>
@@ -35,46 +35,46 @@ namespace LSI.Common.Services
                 .Take(pagination.PageSize);
         }
 
-        public async Task<UDto> AddAsync(UDto dto)
+        public async Task<UVM> AddAsync(UVM dto)
         {
             var model = await ConvertDtoToModel(dto);
             var insertedModel = await _repository.AddAsync(model);
 
-            return await ConvertModelToDto(insertedModel);
+            return await ConvertModelToVM(insertedModel);
         }
 
-        public async Task DeleteAsync(UDto dto)
+        public async Task DeleteAsync(UVM dto)
         {
             var model = await ConvertDtoToModel(dto);
             await _repository.DeleteAsync(model);
         }
 
-        public async Task<UDto> FindById(int id)
+        public async Task<UVM> FindById(int id)
         {
             var model = await _repository.FindById(id);
             if (model == null)
                 throw new ModelNotFoundException(typeof(TModel).Name);
 
-            return await ConvertModelToDto(model);
+            return await ConvertModelToVM(model);
             
         }
 
-        public async Task<List<UDto>> GetAllListAsync()
+        public async Task<List<UVM>> GetAllListAsync()
         {
             var modelList = await _repository.GetAllListAsync();
 
             return await ConvertModelListToDtoList(modelList);
         }
 
-        public async Task<UDto> UpdateAsync(UDto dto)
+        public async Task<UVM> UpdateAsync(UVM dto)
         {
             var model = await ConvertDtoToModel(dto);
             var updatedModel = await _repository.UpdateAsync(model);
 
-            return await ConvertModelToDto(updatedModel);
+            return await ConvertModelToVM(updatedModel);
         }
 
-        protected virtual async Task<List<TModel>> ConvertDtoListToModelList(List<UDto> list)
+        protected virtual async Task<List<TModel>> ConvertDtoListToModelList(List<UVM> list)
         {
             var modelList = new List<TModel>();
             foreach (var dto in list)
@@ -86,22 +86,22 @@ namespace LSI.Common.Services
             return modelList;
         }
 
-        protected virtual async Task<UDto> ConvertModelToDto(TModel model)
+        protected virtual async Task<UVM> ConvertModelToVM(TModel model)
         {
-            return _mapper.Map<TModel, UDto>(model);
+            return _mapper.Map<TModel, UVM>(model);
         }
 
-        protected virtual async Task<TModel> ConvertDtoToModel(UDto dto)
+        protected virtual async Task<TModel> ConvertDtoToModel(UVM dto)
         {
-            return _mapper.Map<UDto, TModel>(dto);
+            return _mapper.Map<UVM, TModel>(dto);
         }
 
-        protected virtual async Task<List<UDto>> ConvertModelListToDtoList(List<TModel> list)
+        protected virtual async Task<List<UVM>> ConvertModelListToDtoList(List<TModel> list)
         {
-            var dtoList = new List<UDto>();
+            var dtoList = new List<UVM>();
             foreach (var model in list)
             {
-                var dto = await ConvertModelToDto(model);
+                var dto = await ConvertModelToVM(model);
                 dtoList.Add(dto);
             }
 

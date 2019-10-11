@@ -11,15 +11,16 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LSI.BusinessLogic.Services
 {
     public class ExportService : GenericeService<ExportDto, IExportRepository, Export, ExportDbContext>, IExportService
     {
-        public ExportService(IExportRepository repository, IMapper mapper) : base(repository, mapper)
+        private readonly ILocalRespository _localRepository;
+        public ExportService(IExportRepository repository, ILocalRespository localRespository, IMapper mapper) : base(repository, mapper)
         {
+            _localRepository = localRespository;
         }
 
         public async Task<List<ExportDto>> FilteredList(ExportFilter filter)
@@ -41,9 +42,9 @@ namespace LSI.BusinessLogic.Services
 
             query = PaginateQuery(query, filter);
 
-            var modelList = await query.ToListAsync();
+            var exportModelList = await query.ToListAsync();
 
-            return await ConvertModelListToDtoList(modelList);
+            return await ConvertModelListToDtoList(exportModelList);;
         }
 
         private void FilterValidation(ExportFilter filter)

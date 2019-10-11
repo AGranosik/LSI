@@ -1,5 +1,7 @@
 ﻿using LSI.BusinessLogic.Filters;
 using LSI.BusinessLogic.Services.Interfaces;
+using LSI.ViewModels;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -7,19 +9,31 @@ namespace LSI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IExportService _service;
+        private readonly IExportService _exportService;
+        private readonly ILocalService _localService;
 
         public HomeController()
         {
 
         }
-        public HomeController(IExportService service)
+        public HomeController(IExportService service, ILocalService localService)
         {
-            _service = service;
+            _exportService = service;
+            _localService = localService;
         }
         public async Task<ActionResult> Index()
         {
-            return View();
+            var list = await _exportService.FilteredList(new ExportFilter { });
+            var localList = await _localService.GetAllListAsync();
+            var vm = new ExportViewModel
+            {
+                Exports = list,
+                Models = localList.Select(l => new SelectListItem { Value = l.ID.ToString(), Text = l.Name}).ToList()
+            };
+            //var vm 
+            return View(vm);
         }
+
+
     }
 }

@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
 using LSI.BusinessLogic.Dtos;
 using LSI.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace LSI.Configuration.Automapper
 {
