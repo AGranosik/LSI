@@ -28,16 +28,18 @@ namespace LSI.BusinessLogic.Services
             var query = _repository.GetAll();
 
             if (filter.From.HasValue)
-                query = query.Where(e => e.Date.Equals(filter.From.Value));
+                query = query.Where(e => e.Date.CompareTo(filter.From.Value) >= 0);
 
             if(filter.To.HasValue)
-                query = query.Where(e => e.Date.Equals(filter.To.Value));
+                query = query.Where(e => e.Date.CompareTo(filter.To.Value) <= 0);
 
             if (filter.LocalId.HasValue)
                 query = query.Where(e => e.LocalId == filter.LocalId.Value);
 
-            query = PaginateQuery(query, filter);
+            query = query.OrderBy(e => e.Date);
 
+
+            query = PaginateQuery(query, filter);
 
             var modelList = await query.ToListAsync();
 

@@ -1,4 +1,5 @@
-﻿using LSI.BusinessLogic.Services.Interfaces;
+﻿using LSI.BusinessLogic.Filters;
+using LSI.BusinessLogic.Services.Interfaces;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
